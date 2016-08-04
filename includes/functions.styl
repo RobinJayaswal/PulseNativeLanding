@@ -1,0 +1,27 @@
+set-placeholder-color(value)
+  &::-webkit-input-placeholder
+    color value
+  &:-webkit-input-placeholder
+    color value
+  &:-moz-placeholder
+    color value
+  &::-moz-placeholder
+    color value
+  &:-ms-input-placeholder
+    color value
+
+set-focused-placeholder-color(value)
+  &:focus::-webkit-input-placeholder 
+    color value
+  &:focus:-moz-placeholder  /* FF 4-18 */
+    color value
+  &:focus::-moz-placeholder  /* FF 19+ */
+    color value
+  &:focus:-ms-input-placeholder  
+    color value
+
+transition-prefix(type, duration, method)
+  transition type duration method
+  -o-transition type duration method
+  -moz-transition type duration method
+  -webkit-transition type duration method

@@ -1,0 +1,3 @@
+rootProject.name = 'PulseNativeLanding'
+
+include ':app'
