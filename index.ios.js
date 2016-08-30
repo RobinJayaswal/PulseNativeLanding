@@ -20,7 +20,8 @@ var {width, height} = Dimensions.get('window');
 import Colors from './includes/colors'
 
 
-const wordBank=['Sexual Assault', 'Drinking', 'Senior Administrators', 'Study Abroad', 'Student Assembly', 'Mental Health', 'Tuition', 'Balance of Life', 'Classroom Climate', 'Inclusivity', 'Academic Success', 'Careers', 'Transferring', 'Faculty Salaries', 'Race and Ethnicity', 'Dartmouth']
+const wordBank=['Sexual Assault', 'Drinking', 'Senior Administrators', 'Study Abroad', 'Student Assembly', 'Mental Health',
+ 'Tuition', 'Balance of Life', 'Classroom Climate', 'Inclusivity', 'Academic Success', 'Careers', 'Transferring', 'Faculty Salaries', 'Race and Ethnicity', 'Dartmouth']
 
 let SetIntervalMixin = {
   componentWillMount: function() {
@@ -79,9 +80,10 @@ class PulseNativeLanding extends Component {
       <View style={styles.mobilePageContainer}>
         <StatusBar
             backgroundColor="black"
-            barStyle="light-content"
-        />
+            barStyle="light-content"/>
         <Carousel delay={30000} style={this.state.size}>
+
+          {/* Screen 1*/}
           <Image source={require('./img/new-bg-1.jpg')} style={styles.container} >
             <View style={styles.mScreen, styles.m1}>
               <View style={styles.logoContainer}>
@@ -95,10 +97,14 @@ class PulseNativeLanding extends Component {
                   <Text style={styles.rotatingText}>
                     {wordBank[this.state.rotatingTextIdx]}
                   </Text>
+                  <View style={styles.line}>
+                  </View>
                 </View>
               </View>
             </View>
           </Image>
+
+
 
           {/* Screen 2 */}
           <Image source={require('./img/collis-mobile.jpg')} style={styles.container} >
@@ -116,6 +122,38 @@ class PulseNativeLanding extends Component {
               </View>
             </View>
           </Image>
+
+
+
+        {/* Screen 3 */}
+          <Image source={require('./img/new-bg-3.png')} style={styles.container} >
+            <View style={styles.mScreen, styles.m1}>
+              <View style={screen3Styles.textContainer}>
+                <Text style={screen3Styles.header} >
+                  Have a stake in the change.
+                </Text>
+
+                <View style={screen3Styles.button}>
+                  <Text style={screen3Styles.buttonText} >
+                  LOG IN
+                  </Text>
+                </View>
+
+
+                <View style={screen3Styles.button}>
+                  <Text style={screen3Styles.buttonText} >
+                  CONTACT US
+                  </Text>
+                </View>
+
+              </View>
+            </View>
+          </Image>
+
+
+
+
+
         </Carousel>
         <View style={ [{bottom: this.state.size.height/10.0 + 30}, bottomDotsStyles.dots ] }>
           <View style={bottomDotsStyles.dotContainer}>
@@ -215,32 +253,43 @@ const styles = StyleSheet.create({
   ,logoContainer: {
     flex: 1,
     marginTop: 30,
+    //marginBottom: 30
   }
   ,logoImage: {
     height: 150,
     width: 300,
+    alignSelf: 'center'
   }
 
   ,header: {
     alignSelf: 'center',
-    marginTop: 40,
+    margin: 20,
+    marginTop: 10,
     backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
 
   }
   ,baseText: {
-    fontSize: 20,
+    fontSize: 15,
     color: 'white',
     textAlign: 'center'
   }
 
   ,rotatingText: {
-    fontSize: 50,
+    fontSize: 26,
     color: 'white',
     textAlign: 'center',
     fontWeight: 'bold',
-    marginTop: 20
+    marginTop: 20,
+    fontFamily: 'Didot'
+  }
+
+  ,line: {
+    alignSelf: 'center',
+    height: 1,
+    width: width/1.1,
+    backgroundColor: 'white'
   }
 
 });
@@ -269,22 +318,91 @@ const bottomDotsStyles = StyleSheet.create({
 
 })
 
+/*const screen2Styles = StyleSheet.create({
+  textContainer: {
+    backgroundColor: 'transparent'
+    ,flexDirection: 'column'
+
+    ,marginRight: 40
+    ,marginLeft: 135
+    ,marginTop: 40
+  }
+  ,header: {
+    fontSize: 26
+    ,textAlign: 'center'
+   // ,fontFamily: 'Didot'
+    ,fontWeight: 'bold'
+    ,color: Colors.questionColor
+    ,marginBottom: 20
+  }
+  ,subHeader: {
+    fontSize: 16
+    ,color: 'white'
+    ,textAlign: 'center'
+  }
+})*/
+
 const screen2Styles = StyleSheet.create({
   textContainer: {
     backgroundColor: 'transparent'
     ,flexDirection: 'column'
 
     ,margin: 15
+    ,marginLeft: 30
+    ,marginRight: 50
   }
   ,header: {
-    fontSize: 40
+    fontSize: 35
     ,color: 'white'
-    ,width: width/2.0
+    ,fontWeight: 'bold'
+    ,width: width/1.5
+    ,textShadowRadius: 1
+    ,textShadowColor: '#393939'
+    ,textShadowOffset: {width: 1, height: 1}
+
   }
   ,subHeader: {
-    fontSize: 20
+    fontSize: 16
     ,color: 'white'
     ,width: width/1.5
+    ,textShadowRadius: 1
+    ,textShadowColor: '#393939'
+    ,textShadowOffset: {width: 1, height: 1}
+  }
+})
+
+const screen3Styles = StyleSheet.create({
+  textContainer: {
+    backgroundColor: 'transparent'
+    ,flexDirection: 'column'
+    ,alignItems: 'center'
+    ,margin: 25
+    ,marginTop: 140
+
+  }
+  ,header: {
+    fontSize: 28
+    ,textAlign: 'center'
+    ,color: 'white'
+//    ,width: width
+    ,fontFamily: 'Didot'
+    //,fontWeight: 'bold'
+  }
+  ,button: {
+    width: 130
+    ,height: 40
+    ,backgroundColor: 'transparent'
+    ,borderColor: 'white'
+    ,borderWidth: 2
+    ,margin: 10
+    ,justifyContent: 'center'
+    ,alignItems: 'center'
+  }
+  ,buttonText: {
+    fontSize: 14
+    ,color: 'white'
+    ,textAlign: 'center'
+    ,fontWeight: 'bold'
   }
 })
 
